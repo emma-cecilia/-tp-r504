@@ -1,0 +1,19 @@
+name: tests unitaires
+on: [push]
+
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python for Demo
+        uses: actions/setup-python@v4
+
+      - name: Install pytest
+        run: pip3 install pytest
+
+      - name: Run tests
+        # Remarque : on est à la racine du repo, donc on précise le chemin du fichier
+        run: pytest TP1/test.py
+
